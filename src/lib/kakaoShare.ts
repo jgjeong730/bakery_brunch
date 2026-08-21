@@ -48,6 +48,10 @@ export async function shareAppToKakao() {
       title: APP_TITLE,
       description: APP_DESC,
       imageUrl: APP_IMAGE,
+      // 실제 비율을 안 알려주면 카카오가 정사각형으로 가정하고 가운데만
+      // 잘라서 보여준다 — 1200x630 이미지의 좌우가 그렇게 잘려나갔다.
+      imageWidth: 1200,
+      imageHeight: 630,
       link: { mobileWebUrl: APP_URL, webUrl: APP_URL },
     },
     buttons: [
