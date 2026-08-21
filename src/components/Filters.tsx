@@ -69,7 +69,7 @@ export default function Filters({
 
       {findError && <p className="find-error">{findError}</p>}
 
-      <div className="filters-row chips scroll" role="group" aria-label="필터">
+      <div className="filters-row chips" role="group" aria-label="분류">
         {CATEGORIES.map((c) => (
           <button
             key={c}
@@ -87,18 +87,22 @@ export default function Filters({
         >
           ☕ 스타벅스
         </button>
-        <span className="chip-sep" />
-        {availableTags.map((t) => (
-          <button
-            key={t}
-            className={`chip tag ${tags.has(t) ? 'on' : ''}`}
-            aria-pressed={tags.has(t)}
-            onClick={() => onToggleTag(t)}
-          >
-            {t}
-          </button>
-        ))}
       </div>
+
+      {availableTags.length > 0 && (
+        <div className="filters-row chips scroll" role="group" aria-label="태그">
+          {availableTags.map((t) => (
+            <button
+              key={t}
+              className={`chip tag ${tags.has(t) ? 'on' : ''}`}
+              aria-pressed={tags.has(t)}
+              onClick={() => onToggleTag(t)}
+            >
+              {t}
+            </button>
+          ))}
+        </div>
+      )}
     </div>
   );
 }

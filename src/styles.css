@@ -93,7 +93,9 @@ button {
   right: 0;
   z-index: 20;
   padding: calc(10px + env(safe-area-inset-top, 0px)) 12px 10px;
-  background: linear-gradient(to bottom, rgba(253, 250, 246, 0.97) 74%, transparent);
+  background: rgba(253, 250, 246, 0.97);
+  box-shadow: 0 8px 20px -6px rgba(60, 40, 20, 0.22);
+  border-radius: 0 0 16px 16px;
   pointer-events: none;
 }
 
@@ -202,6 +204,8 @@ button {
   overflow-x: auto;
   scrollbar-width: none;
   padding-bottom: 2px;
+  -webkit-mask-image: linear-gradient(to right, black 88%, transparent 100%);
+  mask-image: linear-gradient(to right, black 88%, transparent 100%);
 }
 
 .chips.scroll::-webkit-scrollbar {
@@ -242,13 +246,6 @@ button {
 .chip.cat-dessert.on {
   background: var(--cat-dessert);
   border-color: var(--cat-dessert);
-}
-
-.chip-sep {
-  flex: 0 0 1px;
-  align-self: stretch;
-  margin: 4px 4px;
-  background: var(--line);
 }
 
 .region-chip-row {
@@ -990,6 +987,8 @@ code {
 @media (min-width: 760px) {
   .topbar {
     max-width: 440px;
+    margin: 8px 0 0 8px;
+    border-radius: 16px;
   }
 
   .sheet {
