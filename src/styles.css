@@ -12,6 +12,7 @@
   --cat-brunch: #5c8a4a;
   --cat-cafe: #7a6a58;
   --cat-dessert: #b5578c;
+  --cat-starbucks: #00704a;
 
   --shadow: 0 2px 12px rgba(60, 40, 20, 0.1);
   --safe-b: env(safe-area-inset-bottom, 0px);
@@ -166,6 +167,13 @@ button {
   border: none;
   border-radius: 21px;
   box-shadow: var(--shadow);
+  transition: filter 0.12s, box-shadow 0.12s, transform 0.12s;
+}
+
+.find:hover:not(:disabled) {
+  filter: brightness(0.92);
+  box-shadow: 0 5px 16px rgba(60, 40, 20, 0.24);
+  transform: translateY(-1px);
 }
 
 .find:disabled {
@@ -189,6 +197,13 @@ button {
   border: 1px solid var(--line);
   border-radius: 50%;
   box-shadow: var(--shadow);
+  transition: background 0.12s, box-shadow 0.12s, transform 0.12s;
+}
+
+.locate:hover:not(.busy) {
+  background: var(--brand-soft);
+  box-shadow: 0 5px 16px rgba(60, 40, 20, 0.2);
+  transform: translateY(-1px);
 }
 
 .locate.busy {
@@ -222,7 +237,12 @@ button {
   border: 1px solid var(--line);
   border-radius: 16px;
   box-shadow: var(--shadow);
-  transition: background 0.12s, color 0.12s, border-color 0.12s;
+  transition: background 0.12s, color 0.12s, border-color 0.12s, box-shadow 0.12s, transform 0.12s;
+}
+
+.chip:hover {
+  box-shadow: 0 4px 14px rgba(60, 40, 20, 0.18);
+  transform: translateY(-1px);
 }
 
 .chip.on {
@@ -231,19 +251,50 @@ button {
   border-color: var(--brand);
 }
 
+/* 지도 핀과 같은 색으로, 고르지 않았을 때도 어떤 카테고리인지 한눈에 보이게 한다. */
+.chip.cat-bakery {
+  color: var(--cat-bakery);
+  border-color: var(--cat-bakery);
+  background: color-mix(in srgb, var(--cat-bakery) 12%, var(--surface));
+}
+.chip.cat-brunch {
+  color: var(--cat-brunch);
+  border-color: var(--cat-brunch);
+  background: color-mix(in srgb, var(--cat-brunch) 12%, var(--surface));
+}
+.chip.cat-cafe {
+  color: var(--cat-cafe);
+  border-color: var(--cat-cafe);
+  background: color-mix(in srgb, var(--cat-cafe) 12%, var(--surface));
+}
+.chip.cat-dessert {
+  color: var(--cat-dessert);
+  border-color: var(--cat-dessert);
+  background: color-mix(in srgb, var(--cat-dessert) 12%, var(--surface));
+}
+.chip.starbucks {
+  color: var(--cat-starbucks);
+  border-color: var(--cat-starbucks);
+  background: color-mix(in srgb, var(--cat-starbucks) 12%, var(--surface));
+}
+
 .chip.cat-bakery.on {
+  color: #fff;
   background: var(--cat-bakery);
   border-color: var(--cat-bakery);
 }
 .chip.cat-brunch.on {
+  color: #fff;
   background: var(--cat-brunch);
   border-color: var(--cat-brunch);
 }
 .chip.cat-cafe.on {
+  color: #fff;
   background: var(--cat-cafe);
   border-color: var(--cat-cafe);
 }
 .chip.cat-dessert.on {
+  color: #fff;
   background: var(--cat-dessert);
   border-color: var(--cat-dessert);
 }
@@ -1261,8 +1312,9 @@ code {
 
 /* 스타벅스 레이어 토글. 평판 카테고리와 성격이 달라 색으로 구분한다. */
 .chip.starbucks.on {
-  background: #00704a;
-  border-color: #00704a;
+  color: #fff;
+  background: var(--cat-starbucks);
+  border-color: var(--cat-starbucks);
 }
 
 .balloon.chain {
