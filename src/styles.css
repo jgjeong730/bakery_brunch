@@ -108,9 +108,17 @@ button {
   pointer-events: auto;
 }
 
+.apptitle-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 8px;
+  margin: 0 2px 8px;
+}
+
 /* 지도 위에 얹히는 제목이라 배경 없이도 읽히게 그림자를 준다. */
 .apptitle {
-  margin: 0 2px 8px;
+  margin: 0;
   font-size: 17px;
   font-weight: 800;
   letter-spacing: -0.4px;
@@ -120,6 +128,32 @@ button {
 
 .tab-list .apptitle {
   color: var(--ink);
+}
+
+/* 카카오톡 공유 — 브랜드 색을 그대로 써야 사람들이 "공유" 버튼인 걸 바로 안다. */
+.kakao-share-btn {
+  flex: 0 0 auto;
+  width: 30px;
+  height: 30px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: #fee500;
+  border: none;
+  border-radius: 50%;
+  box-shadow: var(--shadow);
+  pointer-events: auto;
+  transition: filter 0.12s, transform 0.12s;
+}
+
+.kakao-share-btn:hover {
+  filter: brightness(0.94);
+  transform: translateY(-1px);
+}
+
+.kakao-share-btn svg {
+  width: 16px;
+  height: 16px;
 }
 
 .filters {

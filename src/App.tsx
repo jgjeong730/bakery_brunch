@@ -7,6 +7,7 @@ import RegionBrowser from './components/RegionBrowser';
 import SavedView from './components/SavedView';
 import TabBar, { type Tab } from './components/TabBar';
 import { loadRecords, saveRecords } from './lib/storage';
+import { shareAppToKakao } from './lib/kakaoShare';
 import {
   distanceKm,
   getCurrentPosition,
@@ -231,6 +232,14 @@ export default function App() {
     });
   }, []);
 
+  const handleKakaoShare = useCallback(async () => {
+    try {
+      await shareAppToKakao();
+    } catch (e) {
+      alert((e as Error).message);
+    }
+  }, []);
+
   const handleLocate = useCallback(async () => {
     setLocating(true);
     try {
@@ -389,7 +398,22 @@ export default function App() {
 
       {(tab === 'map' || tab === 'list') && (
         <header className="topbar">
-          <h1 className="apptitle">전국 베이커리 &amp; 브런치 카페</h1>
+          <div className="apptitle-row">
+            <h1 className="apptitle">전국 베이커리 &amp; 브런치 카페</h1>
+            <button
+              className="kakao-share-btn"
+              onClick={handleKakaoShare}
+              aria-label="카카오톡으로 공유"
+              title="카카오톡으로 공유"
+            >
+              <svg viewBox="0 0 24 24" fill="none" aria-hidden="true">
+                <path
+                  d="M12 4C6.9 4 3 7.2 3 11.1c0 2.5 1.7 4.7 4.2 6l-1 3.6c-.1.4.3.7.6.5l4.2-2.8c.3 0 .7.1 1 .1 5.1 0 9-3.2 9-7.1S17.1 4 12 4z"
+                  fill="#3c2415"
+                />
+              </svg>
+            </button>
+          </div>
           <Filters
             categories={categories}
             tags={tags}
