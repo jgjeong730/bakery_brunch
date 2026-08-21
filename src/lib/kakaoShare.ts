@@ -13,7 +13,7 @@ declare global {
 const APP_URL = 'https://jgjeong730.github.io/bakery_brunch/';
 const APP_TITLE = '전국 베이커리 & 브런치 카페';
 const APP_DESC = '여행지 주변의 평판 좋은 베이커리 카페와 브런치 카페를 지도에서 찾아보세요.';
-const APP_IMAGE = `${APP_URL}icon-512.png`;
+const APP_IMAGE = `${APP_URL}share-card.png`;
 
 let pending: Promise<void> | null = null;
 
